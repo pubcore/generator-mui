@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/pubcore/generator-js.svg?branch=master)](https://travis-ci.org/pubcore/generator-js)
+[![Build Status](https://travis-ci.org/pubcore/generator-mui.svg?branch=master)](https://travis-ci.org/pubcore/generator-mui)
 
 ## Commandline tool to scaffolding new material-ui based react component
 
