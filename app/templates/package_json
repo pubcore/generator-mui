@@ -1,5 +1,6 @@
 {
   "name": "<%= name %>",
+	"author": "<%= author %>",
   "version": "0.1.0",
   "description": "<%= description %>",
   "main": "js/index.js",
@@ -12,7 +13,7 @@
 	"repository": {
 		"type": "git",
 		"url": "<%= repository %>"
-	}
+	},
   "babel": {
     "presets": [
       "@babel/preset-env"
