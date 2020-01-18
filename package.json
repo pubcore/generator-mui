@@ -1,6 +1,6 @@
 {
   "name": "@pubcore/generator-mui",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "User interface component scaffold, based on react, material-ui, final-form and redux",
   "files": [
     "app"
