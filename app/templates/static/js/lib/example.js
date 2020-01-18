@@ -1,8 +1,8 @@
 const cookie = require('cookie')
 const validateBody = './validateBody'
-const {someSchema} = require('./schemas')
+const validateFoo = require('./validateFoo')
 
-module.exports = async (req, res) => validateBody(someSchema)(req, res, () => {
+module.exports = async (req, res) => validateBody(validateFoo)(req, res, () => {
 	var {hash} = req.body,
 		currentDate = new Date(),
 		expiryDate = new Date(currentDate.setMonth(currentDate.getMonth() + 6))
