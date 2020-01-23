@@ -53,11 +53,11 @@ module.exports = class extends Generator {
 	install(){
 		this.log('Install packages ...')
 		this.npmInstall([
-			'@babel/cli', '@babel/core', '@babel/plugin-proposal-object-rest-spread',
-			'@babel/preset-env', '@babel/preset-react', '@babel/runtime',
-			'babel-loader', 'babel-plugin-import', 'clean-webpack-plugin',
-			'eslint', 'eslint-plugin-react', 'file-loader', 'url-loader', 'webpack',
-			'webpack-cli', 'webpack-manifest-plugin', 'webpack-node-externals'
+			'@babel/cli', '@babel/core', '@babel/preset-env', '@babel/preset-react',
+			'@babel/runtime', 'babel-loader', 'babel-plugin-import',
+			'clean-webpack-plugin', 'eslint', 'eslint-plugin-react', 'file-loader',
+			'url-loader', 'webpack', 'webpack-cli', 'webpack-manifest-plugin',
+			'webpack-node-externals'
 		], {'save-dev': true })
 		this.npmInstall([
 			'@babel/polyfill', '@hapi/joi', '@material-ui/core', '@material-ui/icons',
