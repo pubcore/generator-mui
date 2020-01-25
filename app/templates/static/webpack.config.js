@@ -2,7 +2,7 @@ const {join} = require('path'),
 	ManifestPlugin = require('webpack-manifest-plugin'),
 	{ CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-module.exports = {
+module.exports = (env, argv) => ({
 	name:'browser',
 	entry: {
 		'app': join(__dirname, 'src', 'app.js')
@@ -49,5 +49,9 @@ module.exports = {
 		}),
 		new CleanWebpackPlugin()
 	],
-	devtool:'inline-source-map'
-}
+	devtool: argv.mode === 'development' ? 'source-map' : false,
+	performance: {
+		maxEntrypointSize: 2000000,
+		maxAssetSize: 2000000
+	}
+})

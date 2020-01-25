@@ -31,3 +31,17 @@ cd new-project
 ```
 yo @pubcore/mui
 ```
+4) run build (or watch)
+```
+npm run build
+```
+
+### Review/Start in local Browser
+If installed as described above, start
+```
+npm run start
+```
+In Browser navigate to
+```
+http://localhost:3030/test
+```

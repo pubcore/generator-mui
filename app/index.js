@@ -57,7 +57,7 @@ module.exports = class extends Generator {
 			'@babel/runtime', 'babel-loader', 'babel-plugin-import',
 			'clean-webpack-plugin', 'eslint', 'eslint-plugin-react', 'file-loader',
 			'url-loader', 'webpack', 'webpack-cli', 'webpack-manifest-plugin',
-			'webpack-node-externals'
+			'webpack-node-externals', '@pubcore/node-composition', 'express'
 		], {'save-dev': true })
 		this.npmInstall([
 			'@babel/polyfill', '@hapi/joi', '@material-ui/core', '@material-ui/icons',
@@ -65,7 +65,7 @@ module.exports = class extends Generator {
 			'@pubcore/ui-text', 'clone', 'final-form', 'lodash.get', 'qs', 'react',
 			'react-dom', 'react-final-form', 'react-markdown', 'react-redux', 'redux',
 			'redux-create-reducer', 'redux-thunk', 'reselect', 'typeface-roboto',
-			'window-or-global'
+			'window-or-global', 'cookie'
 		], {'save': true })
 	}
 }
