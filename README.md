@@ -29,7 +29,5 @@ cd new-project
 ```
 3) execute
 ```
-yo @pubcore/js
+yo @pubcore/mui
 ```
-4) (optional) if your code already exists, copy it into src/index.js.
-(Keep the entry point file 'src/index.js' because of config dependencies)
