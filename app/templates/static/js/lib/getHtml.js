@@ -3,7 +3,7 @@ const manifest = require('./manifest.json'),
 	appJs = manifest['app.js']
 
 module.exports = (req, res) => {
-	var {component, locale, resources} = req
+	var {component, locale, resources, user} = req
 
 	res.send(`<!DOCTYPE html>
 <html lang="${locale||'en-US'}">
@@ -17,7 +17,7 @@ module.exports = (req, res) => {
 </head>
 <body>
 	<div id="root"></div>
-	<script>window.appResources = ${JSON.stringify({component, resources})}</script>
+	<script>window.appResources = ${JSON.stringify({component, resources, user})}</script>
 	<script src="${appJs}" type="text/javascript"></script>
 </body>
 </html>

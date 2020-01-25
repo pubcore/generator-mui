@@ -1,6 +1,7 @@
 import React from 'react'
 import {Grid, Container, CssBaseline} from '@material-ui/core'
 import {ThemeProvider, makeStyles} from '@material-ui/core/styles'
+import Header from './Header'
 import Navi from './Navi'
 import T from '../lib/text'
 import Messages from './Messages'
@@ -24,6 +25,7 @@ export default function Application({theme}){
 	document.title = T('html_document_title')
 	return <ThemeProvider {...{theme}}><CssBaseline />
 		<Container className={C.root}>
+			<Header/>
 			<Navi/>
 			<Progress status={useSelector(s => s.progress)}>
 				<Grid container direction="column">

@@ -8,7 +8,8 @@ const composeEnhancers = root.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose,
 	store = createStore(
 		rootReducer(),
 		{
-			resources: root.appResources
+			resources: root.appResources,
+			user:root.appResources.user || null
 		},
 		composeEnhancers( applyMiddleware(thunkMiddleware) )
 	),

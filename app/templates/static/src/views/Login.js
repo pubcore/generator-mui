@@ -5,8 +5,8 @@ import Form from './InputForm'
 import Text from './InputText'
 import ButtonReset from './InputButtonReset'
 import {makeStyles} from '@material-ui/core/styles'
-import {fooSubmit} from '../gofer'
-import validate from '../../js/lib/validateFoo'
+import {loginSubmit} from '../gofer'
+import validate from '../../js/lib/validateLogin'
 import ButtonSubmit from './InputButtonSubmit'
 
 const useStyles = makeStyles(() => ({
@@ -20,12 +20,12 @@ const useStyles = makeStyles(() => ({
 	}
 }))
 
-export default function SomeForm(){
+export default function Login(){
 	const C = useStyles()
 	return <>
-		{T('form_foo', 'Set the foo hash, please.')}
-		<Form onSubmit={fooSubmit} validate={validate} className={C.form}>
-			<Text label={T('foo hash')} name="hash" type="string"/>
+		{T('form_credentials', 'Provide an access-token, please.')}
+		<Form onSubmit={loginSubmit} validate={validate} className={C.form}>
+			<Text label={T('access-token')} name="accessToken" type="string"/>
 			<Grid container justify="space-between">
 				<ButtonReset/>
 				<ButtonSubmit/>

@@ -1,13 +1,16 @@
 'use strict'
 const getHtml = require('./lib/getHtml'),
-	example = require('./lib/example'),
+	loginPost = require('./lib/loginPost'),
 	resources = require('./lib/getResources'),
 	fs = require('fs'),
-	{join} = require('path')
+	{join} = require('path'),
+	login = require('./lib/login'),
+	logout = require('./lib/logout')
 
 exports.default = {
-	public: true,
+	public: false,
 	resources,
+	login,
 	http: [
 		{
 			routePath:'/api/changelog',
@@ -19,10 +22,25 @@ exports.default = {
 			accepted: ['text/plain']
 		},
 		{
-			routePath: '/api/foo',
-			map: example,
+			routePath: '/login',
+			map: loginPost,
 			method: 'POST',
-			accepted: ['application/json']
+			accepted: ['application/json'],
+			public: true
+		},
+		{
+			routePath: '/login',
+			map: getHtml,
+			method: 'GET',
+			accepted: ['text/html'],
+			public: true
+		},
+		{
+			routePath: '/logout',
+			map: logout,
+			method: 'GET',
+			accepted: ['text/html'],
+			public: true
 		},
 		{
 			routePath: '/*',

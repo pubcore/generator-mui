@@ -1,8 +1,13 @@
 import pageNavigate from './action/pageNavigate'
 import {dispatch} from './store'
-import postFoo from './carrier/postFoo'
+import postLogin from './carrier/postLogin'
 import handleRequest from './action/handleRequest'
+import get from 'lodash.get'
 
 export const
 	navigate = ({value}) => dispatch(pageNavigate({page:value})),
-	fooSubmit = values => handleRequest({request: () => postFoo(values)})
+	loginSubmit = values => dispatch(handleRequest({
+		request: () => postLogin(values),
+		okAction: ({body}) =>
+			get(body, 'result.backUri') && (document.location.href = body.result.backUri)
+	}))

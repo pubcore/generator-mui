@@ -1,9 +1,9 @@
 import {createSelector} from 'reselect'
+import pageId from './pageId'
 
-export default createSelector(
-	s => s.uri.subPath,
-	subPath => {
-		var page = (subPath.match(/^\/?([^/]+)/)||[])[1]
-		return page || 'example'
+export default (tabs) => createSelector(
+	pageId,
+	(page) => {
+		return tabs.indexOf(page) >= 0 ? page : false
 	}
 )
