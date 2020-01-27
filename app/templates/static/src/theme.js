@@ -1,11 +1,11 @@
 import {createMuiTheme} from '@material-ui/core/styles'
 
-export default createMuiTheme({
+export default ({darkMode}) => createMuiTheme({
 	typography: {
 		useNextVariants: true,
 	},
 	palette:{
-		type:'dark',
+		type: darkMode ? 'dark' : 'light',
 		primary:{
 			main:'#a7db98'
 		},

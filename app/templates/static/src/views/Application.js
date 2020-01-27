@@ -9,6 +9,8 @@ import Footer from './Footer'
 import Progress from './Progress'
 import MainContent from './MainContent'
 import {useSelector} from 'react-redux'
+import createTheme from '../theme'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const useStyles = makeStyles(() => ({
 	root:{
@@ -20,8 +22,11 @@ const useStyles = makeStyles(() => ({
 	}
 }))
 
-export default function Application({theme}){
-	const C = useStyles()
+export default function Application(){
+	const C = useStyles(),
+		darkMode = useMediaQuery('(prefers-color-scheme: dark)'),
+		theme = React.useMemo(() => createTheme({darkMode}), [darkMode])
+
 	document.title = T('html_document_title')
 	return <ThemeProvider {...{theme}}><CssBaseline />
 		<Container className={C.root}>

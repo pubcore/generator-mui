@@ -6,10 +6,9 @@ import initAction from './action/appInit'
 import {listenUri} from '@pubcore/redux-browser-history'
 import {Provider} from 'react-redux'
 import Application from './views/Application'
-import theme from './theme'
 
 render(
-	<Provider store={store}><Application {...{theme}}/></Provider>,
+	<Provider store={store}><Application/></Provider>,
 	document.getElementById('root')
 )
 store.dispatch(initAction())
