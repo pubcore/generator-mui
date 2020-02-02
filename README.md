@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/pubcore/generator-mui.svg?branch=master)](https://travis-ci.org/pubcore/generator-mui)
 
-## Commandline tool to scaffolding new material-ui based react component
+## Commandline tool to create a material-ui based component scaffold
 
 ### Prerequisites
 * latest version of nodejs
