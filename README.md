@@ -11,7 +11,7 @@
 * eslint
 * transpiler via babel
 * material-ui
-* redux
+* redux with redux-toolkit
 * final-form
 
 ### Install it global
