@@ -2,8 +2,8 @@ import showMessage from '../action/showMessage'
 import get from 'lodash.get'
 import progressify from '../lib/progressify'
 
-export default ({request, okAction, dpProgress}) => async dispatch => {try {
-	var response = await progressify({promise:request(), dispatch:dpProgress}),
+export default ({request, okAction}) => async dispatch => {try {
+	var response = await progressify({promise:request()}),
 		{body, status} = response
 	switch (status) {
 	case 200:

@@ -64,8 +64,7 @@ module.exports = class extends Generator {
 			'@material-ui/lab', '@pubcore/http-client', '@pubcore/redux-browser-history',
 			'@pubcore/ui-text', 'clone', 'final-form', 'lodash.get', 'qs', 'react',
 			'react-dom', 'react-final-form', 'react-markdown', 'react-redux', 'redux',
-			'redux-create-reducer', 'redux-thunk', 'reselect', 'typeface-roboto',
-			'window-or-global', 'cookie'
+			'@reduxjs/toolkit', 'typeface-roboto', 'window-or-global', 'cookie'
 		], {'save': true })
 	}
 }

@@ -1,7 +1,8 @@
-import getChangelog from '../carrier/getChangelog'
+import changelog from '../carrier/getChangelog'
 import handleRequest from './handleRequest'
+import {setChangelog} from '../reducer/changelog'
 
 export default () => handleRequest({
-	request: getChangelog,
-	okAction: ({body}) => ({type:'SET_CHANGELOG', changelog:body})
+	request: () => changelog(),
+	okAction: ({body}) => setChangelog(body)
 })

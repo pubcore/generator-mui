@@ -1,18 +1,14 @@
-import root from 'window-or-global'
-import {createStore, applyMiddleware, compose} from 'redux'
-import rootReducer from './reducer/_rootReducer'
-import thunkMiddleware from 'redux-thunk'
+import reducer from './reducer/_rootReducer'
 import get from 'lodash.get'
+import {configureStore} from '@reduxjs/toolkit'
 
-const composeEnhancers = root.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose,
-	store = createStore(
-		rootReducer(),
-		{
+const store = configureStore({
+		reducer,
+		preloadedState:{
 			resources: root.appResources,
-			user:root.appResources.user || null
-		},
-		composeEnhancers( applyMiddleware(thunkMiddleware) )
-	),
+			user: root.appResources.user || null
+		}
+	}),
 	{dispatch} = store
 
 export {dispatch, store}

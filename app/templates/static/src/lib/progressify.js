@@ -1,19 +1,20 @@
 import {dispatch} from '../store'
-import {START, STOP} from '../reducer/progress'
-const start = () => dispatch({type:START}),
-	stop = () => dispatch({type:STOP})
+import {progressStart, progressStop} from '../reducer/progress'
+const start = () => dispatch(progressStart()),
+	stop = () => dispatch(progressStop())
 
-export default ({dispatch, promise}) => {
+export default ({promise}) => {
 	var started = false
-	const dpStart = () => dispatch && dispatch('START') || start()
-	const dpStop = () => {
+	const dpStart = () => start(),
+		dpStop = () => {
 		timer && clearTimeout(timer)
-		started && (dispatch && dispatch('STOP') || stop())
+		started && stop()
 	}
+
 	var timer = setTimeout(() => {
 		started = true
 		dpStart()
-	}, 1000)
+	}, 300)
 
 	return promise.then(
 		res => {

@@ -1,5 +1,7 @@
-import {createReducer} from 'redux-create-reducer'
-
+import {createReducer, createAction} from '@reduxjs/toolkit'
+const setChangelog = createAction('setChangelog')
 export default createReducer('', {
-	SET_CHANGELOG: (s, {changelog}) => changelog
+	[setChangelog]: (s, {payload}) => payload
 })
+
+export {setChangelog}

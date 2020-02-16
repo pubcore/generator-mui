@@ -1,7 +1,12 @@
-import {createReducer} from 'redux-create-reducer'
+import {createReducer, createAction} from '@reduxjs/toolkit'
+const setError = createAction('SET_ERROR'),
+	resetMessages = createAction('resetMessages'),
+	setMessage = createAction('setMessage')
 
 export default createReducer(null, {
-	SET_ERROR: (s, {code, details}) => ({severity:'error', code, details}),
-	RESET_MESSAGES: () => ({}),
-	SET_MESSAGE: (s, {message}) => ({severity:'info', ...message}),
+	[setError]: (s, {payload}) => ({severity:'error', ...payload}),
+	[resetMessages]: () => ({}),
+	[setMessage]: (s, {payload}) => ({...payload}),
 })
+
+export {setError, resetMessages, setMessage}
