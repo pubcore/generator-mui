@@ -15,7 +15,7 @@ module.exports = async (req, res) => {try{
 			cookie.serialize('accessToken', String(accessToken), {
 				httpOnly: true,
 				path: '/',
-				secure: true,
+				secure: process.env.NODE_ENV !== 'development',
 				sameSite: 'lax',
 				expires: expiryDate
 			})

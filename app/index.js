@@ -57,7 +57,8 @@ module.exports = class extends Generator {
 			'@babel/runtime', 'babel-loader', 'babel-plugin-import',
 			'clean-webpack-plugin', 'eslint', 'eslint-plugin-react', 'file-loader',
 			'url-loader', 'webpack', 'webpack-cli', 'webpack-manifest-plugin',
-			'webpack-node-externals', '@pubcore/node-composition', 'express'
+			'webpack-node-externals', '@pubcore/node-composition', 'express',
+			'cross-env'
 		], {'save-dev': true })
 		this.npmInstall([
 			'@babel/polyfill', '@hapi/joi', '@material-ui/core', '@material-ui/icons',

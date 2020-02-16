@@ -1,3 +1,4 @@
+import root from 'window-or-global'
 import reducer from './reducer/_rootReducer'
 import get from 'lodash.get'
 import {configureStore} from '@reduxjs/toolkit'

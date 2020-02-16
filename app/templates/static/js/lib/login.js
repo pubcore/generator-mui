@@ -3,7 +3,7 @@ const cookie = require('cookie')
 const backUriCookieOptions = {
 	httpOnly: true,
 	path: '/',
-	secure: true,
+	secure: process.env.NODE_ENV !== 'development',
 	sameSite: 'lax'
 }
 
