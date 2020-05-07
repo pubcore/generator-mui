@@ -40,6 +40,10 @@ module.exports = class extends Generator {
 			this.destinationPath('.gitignore')
 		)
 		this.fs.copy(
+			this.templatePath('_npmignore'),
+			this.destinationPath('.npmignore')
+		)
+		this.fs.copy(
 			this.templatePath('static/**'),
 			this.destinationPath('.'),
 			{globOptions:{dot:true}}
