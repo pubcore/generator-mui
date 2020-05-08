@@ -5,10 +5,10 @@ import progress from './progress'
 
 
 export default {
-	uri,
-	user: s=>s||null,
-	resources: s =>s||{},
-	messages,
-	progress,
-	changelog
+  uri,
+  user: s=>s||null,
+  resources: s =>s||{},
+  messages,
+  progress,
+  changelog
 }

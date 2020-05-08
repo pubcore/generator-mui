@@ -10,26 +10,26 @@ import validate from '../../js/lib/validateLogin'
 import ButtonSubmit from './InputButtonSubmit'
 
 const useStyles = makeStyles(() => ({
-	form:{
-		display: 'flex',
-		flexDirection: 'column',
-		width: 250,
-		'& > *:not(:last-child)':{
-			marginBottom: 20
-		}
-	}
+  form:{
+    display: 'flex',
+    flexDirection: 'column',
+    width: 250,
+    '& > *:not(:last-child)':{
+      marginBottom: 20
+    }
+  }
 }))
 
 export default function Login(){
-	const C = useStyles()
-	return <>
-		{T('form_credentials', 'Provide an access-token, please.')}
-		<Form onSubmit={loginSubmit} validate={validate} className={C.form}>
-			<Text label={T('access-token')} name="accessToken" type="string"/>
-			<Grid container justify="space-between">
-				<ButtonReset/>
-				<ButtonSubmit/>
-			</Grid>
-		</Form>
-	</>
+  const C = useStyles()
+  return <>
+    {T('form_credentials', 'Provide an access-token, please.')}
+    <Form onSubmit={loginSubmit} validate={validate} className={C.form}>
+      <Text label={T('access-token')} name="accessToken" type="string"/>
+      <Grid container justify="space-between">
+        <ButtonReset/>
+        <ButtonSubmit/>
+      </Grid>
+    </Form>
+  </>
 }

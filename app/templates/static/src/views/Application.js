@@ -13,34 +13,34 @@ import createTheme from '../theme'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const useStyles = makeStyles(() => ({
-	root:{
-		minHeight: '100vh',
-		paddingBottom: 25 //to make footer never overlap content
-	},
-	footer:{
-		marginTop:-25
-	}
+  root:{
+    minHeight: '100vh',
+    paddingBottom: 25 //to make footer never overlap content
+  },
+  footer:{
+    marginTop:-25
+  }
 }))
 
 export default function Application(){
-	const C = useStyles(),
-		darkMode = useMediaQuery('(prefers-color-scheme: dark)'),
-		theme = React.useMemo(() => createTheme({darkMode}), [darkMode])
+  const C = useStyles(),
+    darkMode = useMediaQuery('(prefers-color-scheme: dark)'),
+    theme = React.useMemo(() => createTheme({darkMode}), [darkMode])
 
-	document.title = T('html_document_title')
-	return <ThemeProvider {...{theme}}><CssBaseline />
-		<Container className={C.root}>
-			<Header/>
-			<Navi/>
-			<Progress status={useSelector(s => s.progress)}>
-				<Grid container direction="column">
-					<Grid item><Messages/></Grid>
-					<Grid item><MainContent/></Grid>
-				</Grid>
-			</Progress>
-		</Container>
-		<Container component="footer" className={C.footer}>
-			<Footer/>
-		</Container>
-	</ThemeProvider>
+  document.title = T('html_document_title')
+  return <ThemeProvider {...{theme}}><CssBaseline />
+    <Container className={C.root}>
+      <Header/>
+      <Navi/>
+      <Progress status={useSelector(s => s.progress)}>
+        <Grid container direction="column">
+          <Grid item><Messages/></Grid>
+          <Grid item><MainContent/></Grid>
+        </Grid>
+      </Progress>
+    </Container>
+    <Container component="footer" className={C.footer}>
+      <Footer/>
+    </Container>
+  </ThemeProvider>
 }

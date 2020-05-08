@@ -8,23 +8,23 @@ import {Card, CardHeader, CardContent} from '@material-ui/core'
 import T from '../lib/text'
 
 const useStyles = makeStyles(() => ({
-	root:{
-		minHeight: '33vh'
-	},
+  root:{
+    minHeight: '33vh'
+  },
 }))
 
 export default function MainContent(){
-	const page = useSelector(pageId)
-	const C = useStyles()
-	return <Card className={C.root}>
-		<CardHeader title={T(page)}/>
-		<CardContent>{
-			({'changelog':
-			<Changelog/>,
-			'login':
-			<Login/>
-			})[page] ||
-			null}
-		</CardContent>
-	</Card>
+  const page = useSelector(pageId)
+  const C = useStyles()
+  return <Card className={C.root}>
+    <CardHeader title={T(page)}/>
+    <CardContent>{
+      ({'changelog':
+      <Changelog/>,
+      'login':
+      <Login/>
+      })[page] ||
+      null}
+    </CardContent>
+  </Card>
 }

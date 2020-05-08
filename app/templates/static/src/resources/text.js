@@ -1,3 +1,3 @@
 export default {
-	html_document_title: 'Welcome',
+  html_document_title: 'Welcome',
 }

@@ -4,12 +4,12 @@ import {version} from '../../package.json'
 import Link from './LinkPage'
 
 export default function Footer(){
-	return <Grid container direction="row" justify="flex-end">
-		<Grid item xs={12}><Divider/></Grid>
-		<Grid item xs={1} align="center">
-			<Link page='changelog'>
-				<Typography variant="body2" color="textSecondary">v {version}</Typography>
-			</Link>
-		</Grid>
-	</Grid>
+  return <Grid container direction="row" justify="flex-end">
+    <Grid item xs={12}><Divider/></Grid>
+    <Grid item xs={1} align="center">
+      <Link page='changelog'>
+        <Typography variant="body2" color="textSecondary">v {version}</Typography>
+      </Link>
+    </Grid>
+  </Grid>
 }

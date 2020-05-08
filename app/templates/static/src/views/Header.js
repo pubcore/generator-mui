@@ -4,9 +4,9 @@ import Link from './LinkPage'
 import T from '../lib/text'
 
 export default function Header(){
-	return <Grid container direction="row" justify="flex-end">
-		<Grid item xs={1} align="center">
-			<Link page='logout'>{T('logout')}</Link>
-		</Grid>
-	</Grid>
+  return <Grid container direction="row" justify="flex-end">
+    <Grid item xs={1} align="center">
+      <Link page='logout'>{T('logout')}</Link>
+    </Grid>
+  </Grid>
 }

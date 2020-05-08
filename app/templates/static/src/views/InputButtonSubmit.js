@@ -5,11 +5,11 @@ import T from '../lib/text'
 import Progress from './Progress'
 
 export default function InputButtonSubmit(){
-	return <FormSpy subscribe={{submitting:true}}>{({submitting}) =>
-		<Progress status={submitting}>
-			<Button type="submit" color="primary" disabled={submitting}>
-				{T('submit')}
-			</Button>
-		</Progress>
-	}</FormSpy>
+  return <FormSpy subscribe={{submitting:true}}>{({submitting}) =>
+    <Progress status={submitting}>
+      <Button type="submit" color="primary" disabled={submitting}>
+        {T('submit')}
+      </Button>
+    </Progress>
+  }</FormSpy>
 }

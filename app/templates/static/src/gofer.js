@@ -5,9 +5,9 @@ import handleRequest from './action/handleRequest'
 import get from 'lodash.get'
 
 export const
-	navigate = ({value}) => dispatch(pageNavigate({page:value})),
-	loginSubmit = values => dispatch(handleRequest({
-		request: () => postLogin(values),
-		okAction: ({body}) =>
-			get(body, 'result.backUri') && (document.location.href = body.result.backUri)
-	}))
+  navigate = ({value}) => dispatch(pageNavigate({page:value})),
+  loginSubmit = values => dispatch(handleRequest({
+    request: () => postLogin(values),
+    okAction: ({body}) =>
+      get(body, 'result.backUri') && (document.location.href = body.result.backUri)
+  }))
