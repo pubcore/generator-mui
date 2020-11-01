@@ -1,4 +1,8 @@
 import client from '@pubcore/http-client'
-//global settings of httpClient ...
+//here can be done global static settings for http client
 
-export default client
+export default (args) => client({
+	...args,
+	timeout:60*1000,
+	headers:{'x-requested-with':'XMLHttpRequest'}
+})

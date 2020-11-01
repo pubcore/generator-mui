@@ -1,46 +1,49 @@
 import React from 'react'
-import {Grid, Container, CssBaseline} from '@material-ui/core'
-import {ThemeProvider, makeStyles} from '@material-ui/core/styles'
-import Header from './Header'
-import Navi from './Navi'
-import T from '../lib/text'
-import Messages from './Messages'
-import Footer from './Footer'
-import Progress from './Progress'
-import MainContent from './MainContent'
+import {AppDecorator, Header, Navi, Main, Footer} from './_base'
 import {useSelector} from 'react-redux'
-import createTheme from '../theme'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
+import styled from 'styled-components'
+import {Container as MuiContainer} from '@material-ui/core'
+import {useTranslation} from 'react-i18next'
+import {navigate} from '../gofer'
+import selectTab from '../selectors/naviTabsValue'
+import selectProgress from '../selectors/progress'
+import {text, dashboard, administration, changelog} from '../resources'
+import resourcePath from '../lib/resourcePath'
+import {version} from '../../package.json'
+import MainContent from './MainContent'
+import Messages from './Messages'
 
-const useStyles = makeStyles(() => ({
-  root:{
-    minHeight: '100vh',
-    paddingBottom: 25 //to make footer never overlap content
-  },
-  footer:{
-    marginTop:-25
-  }
-}))
+const	MainContainer = styled(MuiContainer)`
+	min-height: 100vh;
+	padding-bottom: 30px;
+`
+const FooterContainer = styled(MuiContainer)`
+	margin-top: -25px;
+`
+const tabs = [dashboard, administration].map(
+	resource => ({...resource, href: resourcePath(resource)})
+)
 
 export default function Application(){
-  const C = useStyles(),
-    darkMode = useMediaQuery('(prefers-color-scheme: dark)'),
-    theme = React.useMemo(() => createTheme({darkMode}), [darkMode])
+	return AppDecorator({text})(() => {
+		var progressStatus = useSelector(selectProgress),
+			name = 'Mr. X',
+			{t} = useTranslation(),
+			currentTab = useSelector(selectTab(tabs.map(({id}) => id))),
+			messages = <Messages/>
 
-  document.title = T('html_document_title')
-  return <ThemeProvider {...{theme}}><CssBaseline />
-    <Container className={C.root}>
-      <Header/>
-      <Navi/>
-      <Progress status={useSelector(s => s.progress)}>
-        <Grid container direction="column">
-          <Grid item><Messages/></Grid>
-          <Grid item><MainContent/></Grid>
-        </Grid>
-      </Progress>
-    </Container>
-    <Container component="footer" className={C.footer}>
-      <Footer/>
-    </Container>
-  </ThemeProvider>
+		globalThis.document.title = t('html_document_title')
+		return <>
+			<MainContainer>
+				<Header hello={name && t('hello {{name}}', {name})}/>
+				<Navi {...{tabs, onChange:(e, value) => navigate({e, page:value}), currentTab}}/>
+				<Main {...{progressStatus, messages}}>
+					<MainContent/>
+				</Main>
+			</MainContainer>
+			<FooterContainer component="footer">
+				<Footer {...{version, changelogUri:resourcePath(changelog)}}/>
+			</FooterContainer>
+		</>
+	})
 }

@@ -1,17 +1,21 @@
 module.exports = {
   "env": {
-    "es6": true,
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "es2021": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
-    "ecmaVersion": 2018
+    "ecmaVersion": "2021",
+    "sourceType": "module"
   },
+  "plugins":[
+    "mocha"
+  ],
   "rules": {
     "indent": [
       "error",
-      2
+      'tab'
     ],
     "linebreak-style": [
       "error",
@@ -25,6 +29,5 @@ module.exports = {
       "error",
       "never"
     ]
-  },
-  "plugins":["mocha"]
+  }
 }

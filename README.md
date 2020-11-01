@@ -1,24 +1,23 @@
 [![Build Status](https://travis-ci.org/pubcore/generator-mui.svg?branch=master)](https://travis-ci.org/pubcore/generator-mui)
 
-## Commandline tool to create a material-ui based component scaffold
+## Commandline tool to create a material-ui based web-app scaffolding
 
 ### Prerequisites
-* latest version of nodejs
-* latest version of npm
+* latest version (LTS) of nodejs and npm
+* root permissions (for autogeneration of self-signed certificate by devcert)
 
-### Yeoman generator to create a package, with
+### Yeoman generator to create a web app scaffolding with
 * npm
 * eslint
-* transpiler via babel
-* material-ui
+* transpiler via esbuild
+* material-ui with styled components
 * redux with redux-toolkit
 * final-form
+* auto-generation of certificates for local development via https
+* express based server (production ready)
+* Dockerfile to build image via ```npm run build-image```
 
-### Install it global
-```
-npm install -g yo @pubcore/generator-mui
-```
-### How to use
+### local installation (development)
 1) within your scope directoy craete a new one (convention: lower case and dash-separated)
 ```
 mkdir new-project
@@ -29,19 +28,5 @@ cd new-project
 ```
 3) execute
 ```
-yo @pubcore/mui
-```
-4) run build (or watch)
-```
-npm run build
-```
-
-### Review/Start in local Browser
-If installed as described above, start
-```
-npm run start
-```
-In Browser navigate to
-```
-http://localhost:3030/test
+npx -p yo -p @pubcore/generator-mui yo @pubcore/mui
 ```

@@ -8,3 +8,7 @@ dist/
 mydb.sqlite
 htdocs/js
 manifest.json
+_build
+docker-compose.yml
+config/local*
+.env

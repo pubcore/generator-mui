@@ -1,12 +1,12 @@
+'use strict'
+if(process.env.NODE_ENV === 'development'){
+	require('dotenv').config()
+}
 
-//for local testing and review only!
-process.env.NODE_ENV = 'development'
-//for local testing and review only!
-const composition = require('@pubcore/node-composition').default,
-  express = require('express'),
-  app = express(),
-  context_path = '/test',
-  config = {components:{'./js/index':{public:false, context_path}}}
+const {app} = require('@pubcore/node-server-docker'),
+	composition = require('@pubcore/node-composition').default,
+	bodyParser = require('body-parser'),
+	config = require('config').util.toObject()
 
+app.use(bodyParser.urlencoded({ extended : true }))
 app.use('/', composition(config, require))
-app.listen(3030)

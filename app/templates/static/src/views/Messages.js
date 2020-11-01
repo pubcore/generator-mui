@@ -1,14 +1,16 @@
 import React from 'react'
-import T from '../lib/text'
-import {useSelector} from 'react-redux'
-import {Alert} from '@material-ui/lab'
-import {Fade} from '@material-ui/core'
+import {useSelector, useDispatch} from 'react-redux'
+import pageId from '../selectors/pageId'
+import {resetMessages} from '../reducer/messages'
+import {showMessage} from '../gofer'
+import {Message} from './_base'
 
 export default function Messages(){
-  var {code} = useSelector(s => s.messages) || {}
-  return <Fade in={code ? true : false} timeout={500}>
-    <Alert severity="error">
-      {code && T(code)}
-    </Alert>
-  </Fade>
+	var {code, text, severity} = useSelector(s => s.messages) || {},
+		page = useSelector(pageId),
+		dp = useDispatch(),
+		onClose = () => {dp(resetMessages())},
+		action = null
+
+	return <Message {...{page, onClose, code, text, severity, action}}/>
 }

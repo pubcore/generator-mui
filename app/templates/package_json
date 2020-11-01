@@ -5,39 +5,19 @@
   "description": "<%= description %>",
   "main": "js/index.js",
   "scripts": {
-    "prepare": "npm run build",
-    "build": "webpack --mode production",
-    "watch": "webpack --mode development --watch",
-    "start": "cross-env NODE_ENV=development node ./server.js"
+    "build": "cross-env NODE_ENV=production node build",
+    "build-image": "npm run build && cross-env DOCKER_BUILDKIT=1 docker build -t your-app-image-name:latest .",
+    "push-image": "docker push <your docker registry domain>/your-app-image-name:latest",
+    "watch": "cross-env NODE_ENV=development node build -watch",
+    "start:server": "cross-env NODE_ENV=development APP_PORT=8033 TLS_KEY_SOURCE=devcert node server.js",
+    "start": "concurrently 'npm run start:server' 'wait-on https://localhost:8033/healthcheck && opener https://localhost:8033/ui'"
   },
   "license": "<%= license %>",
   "repository": {
     "type": "git",
     "url": "<%= repository %>"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      [
-        "babel-plugin-import",
-        {
-          "libraryName": "@material-ui/core",
-          "libraryDirectory": "esm",
-          "camel2DashComponentName": false
-        },
-        "core"
-      ],
-      [
-        "babel-plugin-import",
-        {
-          "libraryName": "@material-ui/icons",
-          "libraryDirectory": "esm",
-          "camel2DashComponentName": false
-        },
-        "icons"
-      ]
-    ]
+  "browser": {
+    "path": "path-browserify"
   }
 }
